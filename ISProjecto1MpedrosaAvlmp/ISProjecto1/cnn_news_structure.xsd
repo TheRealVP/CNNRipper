@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="cnn_news_list">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" ref="news_us"/>
+		<xs:element maxOccurs="1" ref="news_africa"/>
+		<xs:element maxOccurs="1" ref="news_asia"/>
+		<xs:element maxOccurs="1" ref="news_europe"/>
+		<xs:element maxOccurs="1" ref="news_latinamerica"/>
+		<xs:element maxOccurs="1" ref="news_middleeast"/>
+      </xs:sequence>
+      <xs:attribute name="date_received" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="news_us">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element ref="news_item" maxOccurs="unbounded" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+  </xs:element>
+  <xs:element name="news_africa">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element ref="news_item" maxOccurs="unbounded" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+  </xs:element>
+  <xs:element name="news_asia">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element ref="news_item" maxOccurs="unbounded" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+  </xs:element>
+  <xs:element name="news_europe">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element ref="news_item" maxOccurs="unbounded" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+  </xs:element>
+  <xs:element name="news_latinamerica">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element ref="news_item" maxOccurs="unbounded" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+  </xs:element>
+  <xs:element name="news_middleeast">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element ref="news_item" maxOccurs="unbounded" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+  </xs:element>
+  <xs:element name="news_item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="title" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="date" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="author" maxOccurs="1" minOccurs="0"/>
+        <xs:element ref="highlights" maxOccurs="1" minOccurs="0"/>
+        <xs:element ref="text" maxOccurs="1" minOccurs="0"/>
+        <xs:element ref="url" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="photos" maxOccurs="1" minOccurs="0"/>
+        <xs:element ref="videos" maxOccurs="1" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="title" type="xs:string"/>
+  <xs:element name="date" type="xs:dateTime"/>
+  <xs:element name="author" type="xs:string"/>
+  <xs:element name="highlights" type="xs:string"/>
+  <xs:element name="text" type="xs:string"/>
+  <xs:element name="url" type="xs:anyURI"/>
+  <xs:element name="photos" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="photo" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="photo" type="xs:anyURI"/>
+  <xs:element name="videos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="video" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="video" type="xs:anyURI"/>
+</xs:schema>
